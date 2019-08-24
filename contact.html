@@ -200,7 +200,8 @@
 			
 		</div>
 	</div>
-
+	<div id="map" class="fh5co-map"></div>
+		<!-- END map -->
 	<footer id="fh5co-footer" role="contentinfo">
 			<div class="container">
 	
@@ -245,9 +246,29 @@
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
+
 	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="js/google_map.js"></script>
+
+	<script>
+		var map;
+		var myLatLng = {lat: 22.5387363, lng: 88.3192038};
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: myLatLng,
+				zoom: 16
+			});
+			var marker = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+				title: 'Nikah - Hena & Shadaab'
+			});
+
+		}
+	</script>	  
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAiUMvdebedW1gyg4SqidWzk-4NYNiXdgg&callback=initMap"
+    async defer></script>
+
 
 	<!-- Main -->
 	<script src="js/main.js"></script>
